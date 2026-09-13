@@ -1,14 +1,20 @@
 from sqlmodel import SQLModel
 
+class Token(SQLModel):
+    access_token: str
+    token_type: str
 
-class UserCreate(SQLModel):
+
+class TokenData(SQLModel):
+    username: str | None = None
+
+
+class User(SQLModel):
     username: str
-    email: str
-    password: str
+    email: str | None = None
+    full_name: str | None = None
+    disabled: bool | None = None
 
 
-class UserPublic(SQLModel):
-    id: int
-    username: str
-    email: str
-    is_active: bool
+class UserInDB(User):
+    hashed_password: str
