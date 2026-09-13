@@ -8,7 +8,7 @@ class SongBase(SQLModel):
 
 class Song(SongBase, table=True):
     id: int | None = Field(default=None, primary_key=True)
-
+    test: str | None = None
 
 class SongCreate(SongBase):
     pass
