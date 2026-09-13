@@ -8,15 +8,17 @@ app/
 ├── main.py       # FastAPI app and routes
 ├── db.py         # Database connection and session
 ├── models/
-│   ├── _legacy.py # Keeps old Album migration metadata safe
 │   ├── song.py   # Song database table
 │   └── user.py   # User database table
 ├── schemas/
 │   ├── song.py   # Song request and response schemas
 │   └── user.py   # User request and response schemas
-└── routers/
-    ├── songs.py  # Song routes
-    └── users.py  # User routes
+├── routers/
+│   ├── songs.py  # Song routes
+│   └── users.py  # User routes
+└── services/
+    ├── songs.py  # Song business logic
+    └── users.py  # User business logic
 migrations/       # Database migration files
 alembic.ini       # Alembic configuration
 .env              # Local database URL (not committed)
@@ -35,9 +37,9 @@ Open `http://127.0.0.1:8000/docs` to use the API.
 
 The API provides `GET` and `POST` routes at `/songs` and `/users`.
 
-Each feature has a model, schema, and router. The active features are users and
-songs. An older migration still contains the unused Album table so the existing
-migration history remains valid.
+Each feature has a model, schema, router, and service. Routers handle HTTP while
+services contain database operations and business logic. The active features are
+users and songs.
 
 ## Change the database
 
