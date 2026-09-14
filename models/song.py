@@ -11,5 +11,4 @@ class Album(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     title: str = Field(max_length=100)
     year: int | None = None
-    test: str =  Field(max_length=200)
     
