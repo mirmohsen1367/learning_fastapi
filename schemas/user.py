@@ -21,6 +21,18 @@ class UserPublic(SQLModel):
     is_active: bool
 
 
+class UserPage(SQLModel):
+    items: list[UserPublic]
+    total: int
+    page: int
+    page_size: int
+    total_pages: int
+    has_next: bool
+    has_previous: bool
+    next_page: int | None
+    previous_page: int | None
+
+
 class Token(SQLModel):
     access_token: str
     token_type: str
