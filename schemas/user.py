@@ -5,13 +5,17 @@ from sqlmodel import SQLModel
 
 
 EMAIL_PATTERN = r"^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+$"
-Email = Annotated[str, StringConstraints(pattern=EMAIL_PATTERN)]
+Email = Annotated[
+    str, StringConstraints(pattern=EMAIL_PATTERN, max_length=320)
+]
+Username = Annotated[str, StringConstraints(min_length=3, max_length=50)]
+Password = Annotated[str, StringConstraints(min_length=8, max_length=128)]
 
 
 class UserCreate(SQLModel):
-    username: str
+    username: Username
     email: Email
-    password: str
+    password: Password
 
 
 class UserPublic(SQLModel):
