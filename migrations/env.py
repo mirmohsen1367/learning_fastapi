@@ -7,8 +7,8 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from sqlmodel import SQLModel
 
 from alembic import context
-import app.models  # noqa: F401  # Register all SQLModel tables
-from app.db import DATABASE_URL
+import models  # noqa: F401  # Register all SQLModel tables
+from db import DATABASE_URL
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

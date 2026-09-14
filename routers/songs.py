@@ -3,9 +3,9 @@ from typing import Annotated
 from fastapi import APIRouter, Depends
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from app.db import get_session
-from app.schemas.song import SongCreate, SongPublic
-from app.services import songs as song_service
+from db import get_session
+from schemas.song import SongCreate, SongPublic
+from services import songs as song_service
 
 router = APIRouter(prefix="/songs", tags=["songs"])
 SessionDep = Annotated[AsyncSession, Depends(get_session)]

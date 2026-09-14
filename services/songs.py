@@ -3,8 +3,8 @@ from collections.abc import Sequence
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from app.models.song import Song
-from app.schemas.song import SongCreate
+from models.song import Song
+from schemas.song import SongCreate
 
 
 async def list_songs(session: AsyncSession) -> Sequence[Song]:

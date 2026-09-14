@@ -3,9 +3,9 @@ from typing import Annotated
 from fastapi import APIRouter, Depends
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from app.db import get_session
-from app.schemas.user import UserCreate, UserPublic
-from app.services import users as user_service
+from db import get_session
+from schemas.user import UserCreate, UserPublic
+from services import users as user_service
 
 router = APIRouter(prefix="/users", tags=["users"])
 SessionDep = Annotated[AsyncSession, Depends(get_session)]

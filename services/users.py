@@ -1,12 +1,10 @@
 from pwdlib import PasswordHash
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from app.models.user import User
-from app.schemas.user import UserCreate
+from models.user import User
+from schemas.user import UserCreate
 
 password_hash = PasswordHash.recommended()
-
-
 async def create_user(session: AsyncSession, data: UserCreate) -> User:
     user = User(
         username=data.username,
