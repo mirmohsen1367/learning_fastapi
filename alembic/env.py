@@ -15,7 +15,7 @@ from db import DATABASE_URL
 config = context.config
 
 # Set database URL
-config.set_main_option("sqlalchemy.url", DATABASE_URL)
+config.set_main_option("sqlalchemy.url", DATABASE_URL.replace("%", "%%"),)
 
 # Logging config
 if config.config_file_name is not None:
