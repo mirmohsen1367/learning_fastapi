@@ -1,8 +1,8 @@
-"""initial create tables
+"""create initial tables
 
-Revision ID: d894d844347c
+Revision ID: de770229d182
 Revises: 
-Create Date: 2026-09-14 06:32:49.248241
+Create Date: 2026-09-14 07:25:22.207221
 
 """
 from typing import Sequence, Union
@@ -11,8 +11,9 @@ from alembic import op
 import sqlalchemy as sa
 import sqlmodel
 
+
 # revision identifiers, used by Alembic.
-revision: str = 'd894d844347c'
+revision: str = 'de770229d182'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -25,7 +26,6 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sqlmodel.sql.sqltypes.AutoString(length=100), nullable=False),
     sa.Column('year', sa.Integer(), nullable=True),
-    sa.Column('test', sqlmodel.sql.sqltypes.AutoString(length=100), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('song',
